@@ -1,0 +1,17 @@
+---
+title: "Formulário/Rascunho"
+includes:
+  - \usepackage{fancyhdr}
+  - \pagestyle{fancy}
+  - \fancyhead[CO,CE]{Academia da Força Aérea-Avaliação 01 de ESPR-2024}
+format: pdf
+---
+
+
+$$\begin{array}{lll}
+  \overline{x}=\frac{{x_1 + x_2 + \ldots + x_n}}{{n}} && s^2=\frac{{(x_1 - \bar{x})^2 + (x_2 - \bar{x})^2 + \ldots + (x_n - \bar{x})^2}}{{n-1}}\vspace{.5cm}\\
+    \overline{x}= \frac{{f_1x_1 + f_2x_2 + \ldots + f_nx_n}}{{n}}&&s^2=\frac{{f_1 \cdot (x_1 - \bar{x})^2) + f_2 \cdot (x_2 - \bar{x})^2 + \ldots + f_n \cdot (x_n - \bar{x})^2}}{{n-1}}\vspace{.5cm}\\
+\overline{x}= \frac{{\sum_{i=1}^{k} f_i \cdot pm_i}}{{n}} && s^2=   \frac{{f_1 \cdot (pm_1 - \bar{x})^2) + f_2 \cdot (pm_2 - \bar{x})^2 + \ldots + f_n \cdot (pm_n - \bar{x})^2}}{{n-1}}\vspace{.5cm}\\
+cv=\frac{s}{\overline{x}}\cdot 100&& z=\frac{x_i-\overline{x}}{s}\vspace{.5cm}\\
+\hat{x}=l_k+\frac{\Delta_1}{\Delta_1+\Delta_2}\cdot c_k&& \tilde{x}=l_k+\frac{\frac{N}{2}-Fa_{k-1}}{f_k}\cdot c_k
+\end{array}$$
