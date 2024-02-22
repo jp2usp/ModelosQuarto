@@ -1,0 +1,214 @@
+---
+title: "Academia da Força Aérea"
+subtitle: Primeira Avaliação Parcial de Estatística e Probabilidade 
+author: "PROF JOÃO PAULO, TEN KÁTIA"
+includes:
+  - \usepackage{fancyhdr}
+  - \pagestyle{fancy}
+  - \fancyhead[CO,CE]{Academia da Força Aérea-Avaliação 01 de ESPR-2024}
+format: pdf
+---
+
+
+Nome/Número/Turma: $\fbox{\rule{5.5in}{0pt}\rule[-0.5ex]{0pt}{4ex}}$
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = T, message=F, warning = F, dpi = 300)
+```
+
+### 1. (5 pontos) Complete cada uma das questões com o(s) termo(s) adequados ao contexto da afirmação. 
+<!-- 
+\item [a.)] No nível nominal de mensuração os dados são $.......................$ ou $.......................$  que representam diferentes grupos ou classes. 
+\item [b.)] O nível de mensuração $.......................$ é composto por $.......................$ em que as diferenças entre os valores são significativas e constantes, mas não há $.......................$. 
+
+\item [c.)] No nível de mensuração  $.......................$ os dados são qualitativos, porém  possuem uma $.......................$ ou $.......................$. 
+-->
+
+\begin{description}
+\item [a.)] (1 ponto) $.......................$ é o conjunto de todos os elementos em estudo.
+\item [b.)] (1 ponto) $.......................$ é um subconjunto selecionado de forma aleatória da população.
+\item [c.)] (1 ponto) $.......................$ é uma medida numérica que descreve uma característica populacional. 
+\item [d.)] (1 ponto) $.......................$ é uma medida numérica que descreve uma característica amostral. 
+\item [e.)] (1 ponto) $....................................$ é a média aritmética entre os valores máximo e mínimo do conjunto de dados. 
+\end{description}
+
+
+### 2. (4 pontos) Complete cada uma das questões com o(s) termos adequados ao contexto da afirmação. 
+
+
+\begin{description} 
+\item [a )] (1 ponto) No nível nominal de mensuração os dados são $.......................$ ou $.......................$  que representam diferentes grupos ou classes.  
+\item [b )] (1 ponto) O nível de mensuração $.......................$ é composto por $.......................$ em que as diferenças entre os valores são significativas e constantes, mas não há $.......................$. 
+\item [c )] (1 ponto) No nível de mensuração  $.......................$ os dados são qualitativos, porém  possuem uma $.......................$ ou $.......................$. 
+\item [d )] (1 ponto) Na escala de mensuração do tipo $.......................$ os dados quantitativos possuem todas as características da escala  $.......................$ e, além disso, têm um zero absoluto, indicando $.......................$ da característica medida.  
+\end{description}
+
+
+### 3. (10 pontos) Uma amostra de 120 alunos do primeiro semestre de alunos universtiários foi obtida para uma pesquisa. A seguir estão um resumo de informações sobre idade, atividade física e massa corporal: i) idades: 20 alunos tinham 18 anos, 30 alunos tinham 19 anos, 45 alunos tinham 20 anos e os demais tinham 21 anos; ii) Realização de atividades físicas: 40% praticam frequentemente, 25% regularmente e os demais não realizam atividade alguma; iii) Massa corporal (kg): 10 alunos em $[60,65)$; 40 alunos em $[65,70)$; 25 alunos em $[70, 75)$ e os demais alunos em $[75,80)$.
+
+\begin{description}
+\item [a )] (2 pontos) Quais são as variáveis de interesse representadas nos itens i), ii) e iii)? 
+\item [b )] (2 pontos) Classifique em qualitativa ou quantitativa (contínua ou discreta) as variáveis identificadas em  i.), ii.) e iii.),  respectivamente? 
+Obs: caso não identifique todas as variáveis, haverá descontos proporcionais.
+
+\item [c )] (3 pontos) Calcule as medidas de tendência central, quando possível.
+\item [d )] (3 pontos) Calcule as medidas de variação (amplitude, variância e desvio padrão) das variáveis, quando possível.
+\end{description}
+
+
+\textbf{Soluções:}
+```{r,echo=FALSE,results='asis'}
+cat("\\newpage")
+```
+
+### 4. (10 pontos) Considere que você possui uma amostra de dados em uma tabela *.xlsx*. As seguintes informações foram fornecidas  por meio dos comandos do RStudio. 
+
+Dados adicionais: Turma  representa a turma que o aluno pertence; Altura representa altura do aluno (em centímetros); Idade representa a idade do aluno (em anos) e *Nabd* representa o número de abdominais que o aluno realiza. 
+
+```{r,echo=FALSE}
+# Carregue a biblioteca
+library(readxl)
+# Leia a planilha desejada
+dados =read_excel("Dados2Av2024.xlsx")
+#names(dados)
+dados=dados[1:20,]
+str(dados[,c(4,5,7,9)])
+
+```
+\begin{description}
+\item [a.)](1 ponto) Quais as variáveis quantitativas contínuas e discretas.
+\item [b.)](1 ponto) Quais as variáveis qualitativas categóricas.
+\item [ c.)](8 pontos) Calcule as medidas de tendência central (média, moda e mediana) e dispersão (amplitude total e desvio padrão) para o número de abdominais levando em conta que a tabela de distribuição de frequências é dada a seguir:
+\end{description}
+
+```{r,echo=FALSE}
+
+table(sample(dados$Nabd,size=20,replace=T))
+
+
+```
+
+\textbf{Soluções:}
+```{r,echo=FALSE,results='asis'}
+cat("\\newpage")
+```
+
+### 5. (10 pontos) A seguir estão os resultados da aplicação de uma sequência de comandos do RStudio ao dataframe *dados*, similar àquele utilizado para levantamento de informações das turmas 2A, 2B, 2C e 2D da Academia da Força Aérea, o qual contém informações da *Corrida de 12 minutos* (entre outras). 
+
+```{r,echo=TRUE,fig.show='hide'}
+valores=dados$Corrida; h=hist(valores,breaks=5); b=boxplot(valores)
+```
+
+
+A seguir as informações recuperadas a partir do histograma e do box-plot. 
+
+```{r,echo=FALSE}
+cat("h$breaks:",h$breaks,"     ", "h$counts:",h$counts)
+cat("h$density:",h$density); 
+cat("h$mids:",h$mids, "     ","b$stats",b$stats)
+
+```
+
+
+\begin{description}
+\item [a.)] (3 pontos) Construa a tabela de distribuição de frequências com intervalos de classes. 
+\item [b.)] (4 pontos) Calcule as medidas de tendência central e dispersão.
+\item [c.)] (3 pontos) Faça um esboço do histogram com boxplot  sobreposto ao histograma.
+\end{description}
+
+
+\textbf{Soluções:}
+```{r,echo=FALSE,results='asis'}
+cat("\\newpage")
+```
+
+### 6. (10 pontos) Os resultados a seguir são provenientes da utilização do pacote *psych*, disponível no RStudio, para estatísticas descritivas amostrais dos conjuntos de dados denominados $X_1, X_2, X_3$, respectivamente.  
+
+```{r,echo=FALSE}
+set.seed(100)
+X1=10.-rexp(100,1.02)
+X2=rexp(100,1.0)+6
+X3=rnorm(100,mean=10,sd=2)
+
+df=data.frame(X1,X2,X3)
+
+library(psych)
+describe(df)
+
+```
+\begin{description}
+\item [a.] (3 pontos) Determine o tipo de assimetria que cada conjunto de dados possui. Justifique!
+\item [b.] (3 pontos) Determine o conjunto mais homogêneo e o conjunto mais heterogêneo. Justifique!
+\item [c.)](4 pontos) Levando em conta que $X_1,X_2,X_3$ são pontuações em um teste, compare os valores máximos de cada grupo por meio do z-score. 
+\end{description}
+
+
+\textbf{Soluções:}
+```{r,echo=FALSE,results='asis'}
+cat("\\newpage")
+```
+
+### 7. (10 pontos) A seguir estão estatísticas descritivas de algumas variáveis de um  conjunto de dados denominado *students* que possui 8239 linhas e 16 colunas. Também são apresentadas as estatísticas descritivas da altura agrupada pelo *gênero*.
+
+```{r,echo=FALSE,results='hide'}
+students <- read.csv("https://userpage.fu-berlin.de/soga/200/2010_data_sets/students.csv")
+
+```
+```{r,echo=FALSE}
+
+library(psych)
+students2=students[,c(3,5,6,7)]
+describe(students2)[,c(1:5,8:13)]
+
+```
+
+```{r,echo=FALSE}
+describeBy(students$height,
+           group = students$gender,
+           digits= 4)
+
+
+```
+\begin{description}
+\item [a.)] (3 pontos) Identifique  quais das variáveis não agrupadas acima possuem as estatísticas descritivas corretamente apresentadas. Justifique!
+\item [b.)](4 pontos) Faça um esboço dos boxplots dos dados agrupados sabendo que  os percentis das alturas das pessoas do sexo masculino e feminino, respectivamente, estão apresentados a seguir.
+\end{description}
+
+```{r,echo=FALSE}
+df=students2
+masc=df[df$gender== "Male", ]$height
+fem=df[df$gender== "Female", ]$height
+
+quantmasc=quantile(masc,probs = c(0,.1,.2,.25,.75,.9,.95,1))
+quantmasc
+quantfem=quantile(fem,probs = c(0,.1,.2,.25,.75,.9,.95,1))
+quantfem
+```
+
+\begin{description}
+\item [c.)](3 pontos) Qual dos conjuntos de dados agrupados (altura e peso) é mais disperso em relação a média ? 
+\end{description}
+
+
+\textbf{Soluções:}
+```{r,echo=FALSE,results='asis'}
+cat("\\newpage")
+```
+
+### 8 (10 pontos) Considere  os comandos do R apresentados a seguir. Descreva cada um dos comandos seguindo o padrão apresentado, ou seja, o texto após o $\#$.
+
+```{r,eval=FALSE,echo=T}
+#-------comandos--------------------------descrição-----------------
+Data=read_excel("dados.xlsx")#.......................................
+names(Data)#.........................................................
+str(Data)#...........................................................
+library(psych)#......................................................
+describe(Data$Altura)#...............................................
+
+```
+
+\textbf{Soluções:}
+```{r,echo=FALSE,results='asis'}
+cat("\\newpage")
+```
